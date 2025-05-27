@@ -289,11 +289,22 @@ const PortfolioV7 = () => {
               In the convergence of operations and intelligence lies opportunity. 
               If you seek someone who understands both the poetry of possibility 
               and the prose of implementation, our paths may align.
-            </p>
-
-            <div className="connection-symbol">
+            </p>            <div className="connection-symbol">
               <div className="circle-container">
-                <Circle className="circle-icon" />
+                <motion.div
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{
+                    duration: 2,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    repeatType: "loop"
+                  }}
+                >
+                  <Circle className="circle-icon" />
+                </motion.div>
                 <div className="center-dot"></div>
               </div>
             </div>
