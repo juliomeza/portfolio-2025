@@ -1,0 +1,174 @@
+/* App Selector Styles */
+.app {
+  min-height: 100vh;
+}
+
+/* Portfolio Selector */
+.portfolio-selector {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;  /* Reducimos el z-index para que esté por debajo de la navegación del portfolio */
+  background: #1a202c;
+  padding: 6px 0;
+  color: white;
+}
+
+/* Ajustamos la navegación del portfolio para que esté por encima */
+.nav {
+  z-index: 1000 !important;
+  top: 32px !important; /* Damos espacio para el selector */
+}
+
+/* Ajustamos la navegación del portfolio V2 para que esté por encima */
+.nav-minimal {
+  z-index: 1000 !important;
+  top: 32px !important; /* Damos espacio para el selector */
+}
+
+/* Ajustamos la navegación del portfolio V3 para que esté por encima */
+.nav-creative {
+  z-index: 1000 !important;
+  top: 32px !important; /* Damos espacio para el selector */
+}
+
+/* Adjust PortfolioV4 navigation to be above */
+.pv4-header { /* Assuming pv4-header is the main top bar for V4 */
+  margin-top: 32px !important; /* Space for the selector if it's fixed */
+}
+
+/* Ajustamos el contenido del portfolio para dar espacio al selector */
+.portfolio {
+  padding-top: 70px !important; /* Aumentamos el padding para acomodar ambas barras */
+}
+
+/* Ajustamos el portfolio V2 para dar espacio al selector */
+.portfolio-v2 {
+  padding-top: 70px !important; /* Aumentamos el padding para acomodar ambas barras */
+}
+
+/* Ajustamos el portfolio V3 para dar espacio al selector */
+.portfolio-v3 {
+  padding-top: 70px !important; /* Aumentamos el padding para acomodar ambas barras */
+}
+
+/* Adjust PortfolioV4 content for selector space */
+.portfolio-v4 {
+  padding-top: 38px !important; /* Adjust based on selector height */
+}
+
+/* Adjust PortfolioV5 content for selector space */
+.portfolio-v5 {
+  padding-top: 38px !important; /* Adjust based on selector height */
+}
+
+/* Adjust PortfolioV6 content for selector space */
+.portfolio-v6 {
+  padding-top: 38px !important; /* Adjust based on selector height */
+}
+
+/* Ajustamos el hero section para compensar el espacio adicional */
+.hero {
+  padding-top: 6rem !important;
+}
+
+/* Ajustamos el hero section minimal para compensar el espacio adicional */
+.hero-minimal {
+  padding-top: 8rem !important;
+}
+
+/* Ajustamos el hero section creative para compensar el espacio adicional */
+.hero-creative {
+  padding-top: 6rem !important;
+}
+
+.selector-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.selector-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #cbd5e0;
+  white-space: nowrap;
+}
+
+.selector-dropdown {
+  padding: 4px 12px;
+  border: 1px solid #4a5568;
+  border-radius: 4px;
+  background: #2d3748;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.selector-dropdown:hover {
+  border-color: #3182ce;
+}
+
+.selector-dropdown:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+/* Portfolio Content */
+.portfolio-content {
+  width: 100%;
+}
+
+/* Coming Soon Placeholder */
+.coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+}
+
+.coming-soon h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.coming-soon p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* Responsive Design for Selector */
+@media (max-width: 768px) {
+  .selector-container {
+    justify-content: center;
+    padding: 0 1rem;
+  }
+  
+  .selector-dropdown {
+    min-width: 180px;
+  }
+  
+  .coming-soon h2 {
+    font-size: 2rem;
+  }
+  
+  .coming-soon p {
+    font-size: 1rem;
+  }
+}

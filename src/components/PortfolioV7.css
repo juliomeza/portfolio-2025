@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;1,400&display=swap');
+
+.philosophical-portfolio {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  background-color: #f5f2ed;
+  color: #2a2a2a;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+.chapter-section, .hero-section {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero-content {
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.main-title {
+  font-size: clamp(3rem, 8vw, 9rem);
+  font-family: 'Crimson Text', serif;
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  margin-bottom: 4rem;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.symbol-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.infinity-symbol {
+  position: relative;
+}
+
+.infinity-svg {
+  stroke: #2a2a2a;
+  fill: none;
+}
+
+.attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+}
+
+.acknowledgment {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Chapter Sections */
+.chapter-section {
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.chapter-content {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 2rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.chapter-header {
+  margin-bottom: 5rem;
+}
+
+.chapter-number {
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.chapter-title {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-family: 'Crimson Text', serif;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.chapter-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .chapter-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chapter-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.first-paragraph::first-letter {
+  font-size: 4rem;
+  font-family: 'Crimson Text', serif;
+  float: left;
+  margin-right: 0.75rem;
+  line-height: 1;
+  margin-top: 0.25rem;
+}
+
+/* Projects Section */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.project-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .project-item {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.project-number {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-index {
+  font-size: 0.875rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.project-name {
+  font-size: 1.5rem;
+  font-family: 'Crimson Text', serif;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+}
+
+.project-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.project-tech {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* Skills Section */
+.skills-section {
+  align-items: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.skills-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-category {
+  font-size: 1.5rem;
+  font-family: 'Crimson Text', serif;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-name {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.skill-description {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Connection Section */
+.connection-section {
+  text-align: center;
+}
+
+.connection-content {
+  max-width: 32rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.connection-text {
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+
+.connection-symbol {
+  padding: 3rem 0;
+}
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.circle-icon {
+  width: 8rem;
+  height: 8rem;
+  stroke-width: 1.5;
+}
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #2a2a2a;
+  border-radius: 50%;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.125rem;
+}
+
+.contact-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  color: inherit;
+  transition: text-decoration-thickness 0.2s ease;
+}
+
+.contact-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+.copyright {
+  margin-top: 5rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* Page Numbers */
+.page-number {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  .hero-section,
+  .chapter-section {
+    padding: 2rem 1rem;
+  }
+  
+  .main-title {
+    letter-spacing: 0.1em;
+  }
+  
+  .acknowledgment {
+    left: 1rem;
+  }
+  
+  .page-number {
+    right: 1rem;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f2ed;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}

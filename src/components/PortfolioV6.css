@@ -1,0 +1,236 @@
+/* PortfolioV6.css - Zen-inspired Typographic Portfolio */
+
+.portfolio-v6 {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  background-color: #f8f7f3;
+  color: #2d2d2d;
+  min-height: 100vh;
+  padding: 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+.pv6-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+/* Header & Title */
+.pv6-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pv6-title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.pv6-title-line {
+  display: block;
+}
+
+.pv6-subtitle {
+  font-style: italic;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: #595959;
+  font-weight: 400;
+}
+
+/* Symbol */
+.pv6-symbol {
+  width: 180px;
+  height: 180px;
+  margin: 5rem auto;
+  position: relative;
+}
+
+.pv6-circle {
+  border: 1px solid #2d2d2d;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.8;
+}
+
+.pv6-circle-1 {
+  width: 180px;
+  height: 180px;
+  top: 0;
+  left: 0;
+}
+
+.pv6-circle-2 {
+  width: 150px;
+  height: 150px;
+  top: 15px;
+  left: 15px;
+}
+
+.pv6-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #2d2d2d;
+  border-radius: 50%;
+  position: absolute;
+  right: 50px;
+  top: 87px;
+}
+
+/* Sections */
+.pv6-section {
+  margin-bottom: 5rem;
+  padding: 0 1rem;
+}
+
+.pv6-section h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+.pv6-philosophy p {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.8;
+}
+
+.pv6-philosophy p:last-child {
+  font-style: italic;
+  font-size: 1.3rem;
+  margin-top: 2.5rem;
+}
+
+/* Craft Section */
+.pv6-craft-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.pv6-craft-item {
+  text-align: center;
+}
+
+.pv6-craft-item h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.pv6-craft-item p {
+  font-size: 1.1rem;
+  color: #595959;
+}
+
+/* Journey/Timeline */
+.pv6-timeline {
+  margin-top: 3rem;
+}
+
+.pv6-timeline-item {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.pv6-timeline-year {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-top: 0.2rem;
+}
+
+.pv6-timeline-content h3 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.pv6-timeline-content p {
+  color: #595959;
+}
+
+/* Contact */
+.pv6-contact {
+  text-align: center;
+}
+
+.pv6-contact-text {
+  font-style: italic;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.pv6-contact-link {
+  display: inline-block;
+  color: #2d2d2d;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #2d2d2d;
+  padding-bottom: 0.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pv6-contact-link:hover {
+  opacity: 0.7;
+}
+
+/* Footer */
+.pv6-footer {
+  margin-top: 5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #595959;
+}
+
+.pv6-footer-quote {
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pv6-container {
+    padding: 3rem 1.5rem;
+  }
+  
+  .pv6-symbol {
+    width: 140px;
+    height: 140px;
+    margin: 3rem auto;
+  }
+  
+  .pv6-circle-1 {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .pv6-circle-2 {
+    width: 110px;
+    height: 110px;
+    top: 15px;
+    left: 15px;
+  }
+  
+  .pv6-dot {
+    right: 40px;
+    top: 70px;
+  }
+  
+  .pv6-timeline-item {
+    grid-template-columns: 70px 1fr;
+    gap: 1rem;
+  }
+}

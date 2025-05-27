@@ -1,0 +1,165 @@
+/* PortfolioV5.css - Sidebar Layout Minimalism */
+
+.portfolio-v5 {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6fb;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #23272f;
+}
+
+.pv5-sidebar {
+  width: 260px;
+  background: #23272f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+
+.pv5-sidebar-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.pv5-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.pv5-role {
+  font-size: 1.05rem;
+  color: #b0b6c1;
+}
+
+.pv5-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: auto;
+}
+
+.pv5-nav a {
+  color: #b0b6c1;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.pv5-nav a:hover {
+  color: #fff;
+}
+
+.pv5-sidebar-footer {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #7a7f87;
+}
+
+.pv5-main {
+  flex: 1;
+  padding: 3rem 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pv5-section {
+  margin-bottom: 3rem;
+}
+
+.pv5-section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #23272f;
+}
+
+.pv5-about p,
+.pv5-experience ul,
+.pv5-projects p,
+.pv5-contact p {
+  font-size: 1.08rem;
+  color: #3a3f4b;
+}
+
+.pv5-experience ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+}
+
+.pv5-project-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pv5-project-card {
+  background: #fff;
+  border: 1px solid #e3e6ee;
+  border-radius: 6px;
+  padding: 1.5rem 1.2rem;
+  min-width: 220px;
+  box-shadow: 0 2px 8px rgba(35, 39, 47, 0.04);
+  margin-bottom: 1rem;
+}
+
+.pv5-project-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #23272f;
+}
+
+.pv5-project-card p {
+  font-size: 0.98rem;
+  color: #4a4f5c;
+}
+
+.pv5-contact a {
+  color: #2d6cdf;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .portfolio-v5 {
+    flex-direction: column;
+  }
+  .pv5-sidebar {
+    flex-direction: row;
+    width: 100%;
+    min-height: unset;
+    padding: 1.5rem 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+  }
+  .pv5-main {
+    padding: 2rem 1rem;
+  }
+  .pv5-nav {
+    flex-direction: row;
+    gap: 1.2rem;
+    margin-bottom: 0;
+  }
+  .pv5-sidebar-footer {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .pv5-main {
+    padding: 1rem 0.2rem;
+  }
+  .pv5-project-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
