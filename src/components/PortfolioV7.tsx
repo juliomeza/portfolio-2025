@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Circle } from 'lucide-react';
 import './PortfolioV7.css';
 
@@ -12,6 +13,26 @@ const PortfolioV7 = () => {
     "The art of digital transformation",
     "Simplicity in complexity"
   ];
+
+  const infinityPathVariants = {
+    initial: {
+      pathLength: 0,
+      opacity: 0
+    },
+    animate: {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: { 
+          duration: 2,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "loop"
+        },
+        opacity: { duration: 0.5 }
+      }
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,13 +64,39 @@ const PortfolioV7 = () => {
 
           {/* Geometric Symbol - Infinity */}
           <div className="symbol-container">
-            <div className="infinity-symbol">
-              <svg width="200" height="100" viewBox="0 0 200 100" className="infinity-svg">
-                <path d="M50 50 C50 20, 90 20, 90 50 C90 80, 130 80, 130 50 C130 20, 170 20, 170 50 C170 80, 130 80, 130 50 C130 20, 90 20, 90 50 C90 80, 50 80, 50 50" 
-                      strokeWidth="2" />
-                <circle cx="100" cy="50" r="3" fill="#2a2a2a" />
-              </svg>
-            </div>
+            <motion.svg 
+              width="120" 
+              height="60"              viewBox="0 0 100 100" 
+              className="infinity-svg"
+            >
+              {/* Static circles */}
+              <path
+                d="M20 50 A30 30 0 1 1 80 50 A30 30 0 1 1 20 50"
+                stroke="currentColor"
+                fill="none"
+                strokeWidth="1.5"
+                opacity="0.2"
+              />
+              
+              {/* Animated dot */}
+              <motion.circle
+                cx="20"
+                cy="50"
+                r="2.5"
+                fill="currentColor"
+                animate={{
+                  cx: [20, 50, 80, 50, 20],
+                  cy: [50, 20, 50, 80, 50],
+                }}
+                transition={{
+                  duration: 8,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  times: [0, 0.25, 0.5, 0.75, 1]
+                }}
+              />
+            </motion.svg>
           </div>
 
           {/* Attribution */}

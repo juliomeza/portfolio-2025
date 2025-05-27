@@ -63,9 +63,10 @@
 }
 
 .symbol-container {
+  margin: 2rem 0;
   display: flex;
   justify-content: center;
-  margin-bottom: 4rem;
+  align-items: center;
 }
 
 .infinity-symbol {
@@ -73,8 +74,13 @@
 }
 
 .infinity-svg {
-  stroke: #2a2a2a;
-  fill: none;
+  color: #2a2a2a;
+  transform: scale(1.2);
+}
+
+.infinity-svg path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .attribution {
@@ -90,6 +96,12 @@
   left: 2rem;
   font-size: 0.75rem;
   color: #666;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infinity-svg path {
+    animation: none;
+  }
 }
 
 /* Chapter Sections */
