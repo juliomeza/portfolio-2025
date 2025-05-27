@@ -83,6 +83,21 @@
   stroke-linejoin: round;
 }
 
+.hexagon-city-svg {
+  color: #2a2a2a;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.hexagon {
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.hexagon:hover {
+  fill: #4a4a4a;
+  transform: scale(1.1);
+}
+
 .attribution {
   display: flex;
   flex-direction: column;
