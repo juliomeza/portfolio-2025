@@ -89,88 +89,88 @@ const PortfolioV7 = () => {
             >
               {/* Hexagon city pattern */}
               {/* Row 1 */}
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[0] = el; }}
-                points="50,20 70,10 90,20 90,40 70,50 50,40" 
-                fill="none" 
+                points="82.7,10.0 100.0,20.0 100.0,40.0 82.7,50.0 65.4,40.0 65.4,20.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[1] = el; }}
-                points="110,20 130,10 150,20 150,40 130,50 110,40" 
-                fill="none" 
+                points="117.3,10.0 134.6,20.0 134.6,40.0 117.3,50.0 100.0,40.0 100.0,20.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              
+
               {/* Row 2 */}
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[2] = el; }}
-                points="20,50 40,40 60,50 60,70 40,80 20,70" 
-                fill="none" 
+                points="65.4,40.0 82.7,50.0 82.7,70.0 65.4,80.0 48.1,70.0 48.1,50.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[3] = el; }}
-                points="80,50 100,40 120,50 120,70 100,80 80,70" 
-                fill="none" 
+                points="100.0,40.0 117.3,50.0 117.3,70.0 100.0,80.0 82.7,70.0 82.7,50.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[4] = el; }}
-                points="140,50 160,40 180,50 180,70 160,80 140,70" 
-                fill="none" 
+                points="134.6,40.0 151.9,50.0 151.9,70.0 134.6,80.0 117.3,70.0 117.3,50.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              
+
               {/* Row 3 */}
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[5] = el; }}
-                points="50,80 70,70 90,80 90,100 70,110 50,100" 
-                fill="none" 
+                points="82.7,70.0 100.0,80.0 100.0,100.0 82.7,110.0 65.4,100.0 65.4,80.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[6] = el; }}
-                points="110,80 130,70 150,80 150,100 130,110 110,100" 
-                fill="none" 
+                points="117.3,70.0 134.6,80.0 134.6,100.0 117.3,110.0 100.0,100.0 100.0,80.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              
+
               {/* Row 4 */}
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[7] = el; }}
-                points="20,110 40,100 60,110 60,130 40,140 20,130" 
-                fill="none" 
+                points="65.4,100.0 82.7,110.0 82.7,130.0 65.4,140.0 48.1,130.0 48.1,110.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[8] = el; }}
-                points="80,110 100,100 120,110 120,130 100,140 80,130" 
-                fill="none" 
+                points="100.0,100.0 117.3,110.0 117.3,130.0 100.0,140.0 82.7,130.0 82.7,110.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              <polygon 
+              <polygon
                 ref={el => { hexagonsRef.current[9] = el; }}
-                points="140,110 160,100 180,110 180,130 160,140 140,130" 
-                fill="none" 
+                points="134.6,100.0 151.9,110.0 151.9,130.0 134.6,140.0 117.3,130.0 117.3,110.0"
+                fill="none"
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
