@@ -21,34 +21,49 @@ const PortfolioV7 = () => {
   useEffect(() => {
     if (!hexagonContainerRef.current) return;
 
-    const hexagons = hexagonsRef.current.filter(h => h !== null) as SVGPolygonElement[];
-    
-    // Animation timeline
-    const tl = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 2 });
-    
-    // Ensure hexagons are initially hidden by CSS or explicitly set here if needed
-    // gsap.set(hexagons, { opacity: 0 }); // This line can be removed if CSS handles initial state
-    
-    // Animate hexagons appearing one by one
-    hexagons.forEach((hex, index) => {
-      if (hex) {
-        tl.to(hex, {
-          scale: 1,
-          opacity: 0.7,
-          duration: 0.5, // Animation duration
-          ease: "back.out(1.7)",
-          // delay: index * 0.8, // Removed: Relying on position parameter for stagger
-        }, index * 0.8); // Stagger start times on the timeline - Increased from 0.15 to 0.8
-      }
+    const allHexagonElements = hexagonsRef.current; // This is (SVGPolygonElement | null)[]
+
+    const coreHexagon = allHexagonElements[3]; 
+    const surroundingIndices = [0, 1, 2, 4, 5, 6];
+    const surroundingHexagons = surroundingIndices
+      .map(i => allHexagonElements[i])
+      .filter(h => h !== null) as SVGPolygonElement[];
+
+    const tl = gsap.timeline({ 
+      repeat: -1, 
+      yoyo: true, 
+      repeatDelay: 2 // Pause after yoyo before repeating
     });
     
-    // Hold the city for a moment when all are visible
-    tl.to({}, { duration: 2 });
+    if (coreHexagon) {
+      tl.fromTo(coreHexagon, 
+        { scale: 0, opacity: 0 }, // Initial state for the animation
+        {
+          scale: 1,
+          opacity: 0.7,
+          duration: 0.5,
+          ease: "back.out(1.7)"
+        }, 
+      "coreAppear"); 
+    }
+
+    if (surroundingHexagons.length > 0) {
+      tl.fromTo(surroundingHexagons, 
+        { scale: 0, opacity: 0 }, // Initial state for the animation
+        {
+          scale: 1,
+          opacity: 0.7,
+          duration: 0.5,
+          ease: "back.out(1.7)",
+          stagger: 0.8 // Stagger the appearance of surrounding hexagons
+        }, 
+      "coreAppear+=0.3"); // Start 0.3s after core starts appearing
+    }
+    
+    tl.to({}, { duration: 2 }); // Hold the fully formed 7-hexagon shape
    
     return () => {
       tl.kill();
-      // Reset styles if needed when component unmounts or effect re-runs
-      // gsap.set(hexagons, { opacity: 0 }); 
     };
   }, []);
 
@@ -83,12 +98,12 @@ const PortfolioV7 = () => {
             <svg 
               ref={hexagonContainerRef}
               width="200" 
-              height="160"
-              viewBox="0 0 200 160" 
+              height="120"
+              viewBox="0 0 200 120" 
               className="hexagon-city-svg"
             >
-              {/* Hexagon city pattern */}
-              {/* Row 1 */}
+              {/* Hexagon city pattern - Core and 6 surrounding */}
+              {/* Row 1 (Indices 0, 1 in hexagonsRef) */}
               <polygon
                 ref={el => { hexagonsRef.current[0] = el; }}
                 points="82.7,10.0 100.0,20.0 100.0,40.0 82.7,50.0 65.4,40.0 65.4,20.0"
@@ -106,7 +121,7 @@ const PortfolioV7 = () => {
                 className="hexagon"
               />
 
-              {/* Row 2 */}
+              {/* Row 2 (Indices 2, 3, 4 in hexagonsRef) */}
               <polygon
                 ref={el => { hexagonsRef.current[2] = el; }}
                 points="65.4,40.0 82.7,50.0 82.7,70.0 65.4,80.0 48.1,70.0 48.1,50.0"
@@ -132,7 +147,7 @@ const PortfolioV7 = () => {
                 className="hexagon"
               />
 
-              {/* Row 3 */}
+              {/* Row 3 (Indices 5, 6 in hexagonsRef) */}
               <polygon
                 ref={el => { hexagonsRef.current[5] = el; }}
                 points="82.7,70.0 100.0,80.0 100.0,100.0 82.7,110.0 65.4,100.0 65.4,80.0"
@@ -150,31 +165,33 @@ const PortfolioV7 = () => {
                 className="hexagon"
               />
 
-              {/* Row 4 */}
-              <polygon
+              {/* Row 4 (Indices 7, 8, 9 in hexagonsRef) - Commented out as per user request */}
+              {/*
+              <polygon 
                 ref={el => { hexagonsRef.current[7] = el; }}
-                points="65.4,100.0 82.7,110.0 82.7,130.0 65.4,140.0 48.1,130.0 48.1,110.0"
-                fill="none"
+                points="65.4,100.0 82.7,110.0 82.7,130.0 65.4,140.0 48.1,130.0 48.1,110.0" 
+                fill="none" 
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              <polygon
+              <polygon 
                 ref={el => { hexagonsRef.current[8] = el; }}
-                points="100.0,100.0 117.3,110.0 117.3,130.0 100.0,140.0 82.7,130.0 82.7,110.0"
-                fill="none"
+                points="100.0,100.0 117.3,110.0 117.3,130.0 100.0,140.0 82.7,130.0 82.7,110.0" 
+                fill="none" 
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
-              <polygon
+              <polygon 
                 ref={el => { hexagonsRef.current[9] = el; }}
-                points="134.6,100.0 151.9,110.0 151.9,130.0 134.6,140.0 117.3,130.0 117.3,110.0"
-                fill="none"
+                points="134.6,100.0 151.9,110.0 151.9,130.0 134.6,140.0 117.3,130.0 117.3,110.0" 
+                fill="none" 
                 stroke='currentColor'
                 stroke-width="3"
                 className="hexagon"
               />
+              */}
             </svg>
           </div>
 
