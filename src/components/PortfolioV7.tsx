@@ -37,27 +37,27 @@ const PortfolioV7 = () => {
     
     if (coreHexagon) {
       tl.fromTo(coreHexagon, 
-        { scale: 0, opacity: 0 }, // Initial state for the animation
+        { opacity: 0, transformOrigin: "50% 50%" }, // Initial state: invisible
         {
-          scale: 1,
-          opacity: 0.7,
-          duration: 0.5,
-          ease: "back.out(1.7)"
+          opacity: 0.7, // Target state: visible
+          duration: 1.5, // Slower animation
+          ease: "power1.inOut",
+          transformOrigin: "50% 50%" // Ensure scaling from center
         }, 
       "coreAppear"); 
     }
 
     if (surroundingHexagons.length > 0) {
       tl.fromTo(surroundingHexagons, 
-        { scale: 0, opacity: 0 }, // Initial state for the animation
+        { opacity: 0, transformOrigin: "50% 50%" }, // Initial state: invisible
         {
-          scale: 1,
-          opacity: 0.7,
-          duration: 0.5,
-          ease: "back.out(1.7)",
-          stagger: 0.8 // Stagger the appearance of surrounding hexagons
+          opacity: 0.7, // Target state: visible
+          duration: 1.5, // Slower animation
+          ease: "power1.inOut",
+          transformOrigin: "50% 50%",
+          stagger: 0.3 // Adjusted stagger for slower appearance
         }, 
-      "coreAppear+=0.3"); // Start 0.3s after core starts appearing
+      "coreAppear+=0.5"); // Adjusted delay for surrounding hexagons
     }
     
     tl.to({}, { duration: 2 }); // Hold the fully formed 7-hexagon shape
