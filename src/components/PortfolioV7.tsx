@@ -20,13 +20,13 @@ const PortfolioV7 = () => {
   useEffect(() => {
     if (!hexagonContainerRef.current) return;
 
-    const hexagons = hexagonsRef.current;
+    const hexagons = hexagonsRef.current.filter(h => h !== null) as SVGPolygonElement[];
     
     // Animation timeline
     const tl = gsap.timeline({ repeat: -1, yoyo: true });
     
-    // Initially hide all hexagons
-    gsap.set(hexagons, { scale: 1, opacity: 0 });
+    // Ensure hexagons are initially hidden by CSS or explicitly set here if needed
+    // gsap.set(hexagons, { opacity: 0 }); // This line can be removed if CSS handles initial state
     
     // Animate hexagons appearing one by one
     hexagons.forEach((hex, index) => {
@@ -34,9 +34,9 @@ const PortfolioV7 = () => {
         tl.to(hex, {
           scale: 1,
           opacity: 0.7,
-          duration: 0.5, // Duración de la animación
+          duration: 0.5, // Animation duration
           ease: "back.out(1.7)",
-          delay: index * 0.8 // Delay para que aparezcan uno a uno
+          delay: index * 0.8 // Delay for staggered appearance
         }, index * 0.15);
       }
     });
@@ -46,6 +46,8 @@ const PortfolioV7 = () => {
    
     return () => {
       tl.kill();
+      // Reset styles if needed when component unmounts or effect re-runs
+      // gsap.set(hexagons, { opacity: 0 }); 
     };
   }, []);
 
