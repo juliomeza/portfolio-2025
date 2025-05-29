@@ -60,7 +60,7 @@ const PortfolioV7 = () => {
       "coreAppear+=0.9"); // Adjusted delay for surrounding hexagons
     }
     
-    tl.to({}, { duration: 2 }); // Hold the fully formed 7-hexagon shape
+    tl.to({}, { duration: 1 }); // Hold the fully formed 7-hexagon shape
    
     return () => {
       tl.kill();
