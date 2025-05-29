@@ -43,21 +43,7 @@ const PortfolioV7 = () => {
     
     // Hold the city for a moment
     tl.to({}, { duration: 2 });
-    
-    // Make some hexagons pulse randomly
-    hexagons.forEach((hex, index) => {
-      if (hex && index % 3 === 0) {
-        tl.to(hex, {
-          scale: 1.2,
-          opacity: 1,
-          duration: 0.4,
-          ease: "power2.inOut",
-          yoyo: true,
-          repeat: 1
-        }, "-=1.5");
-      }
-    });
-    
+   
     return () => {
       tl.kill();
     };
