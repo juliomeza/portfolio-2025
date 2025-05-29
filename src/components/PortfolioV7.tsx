@@ -16,6 +16,7 @@ const PortfolioV7 = () => {
     "The art of digital transformation",
     "Simplicity in complexity"
   ];
+
   // Hexagon city animation
   useEffect(() => {
     if (!hexagonContainerRef.current) return;
@@ -23,7 +24,7 @@ const PortfolioV7 = () => {
     const hexagons = hexagonsRef.current.filter(h => h !== null) as SVGPolygonElement[];
     
     // Animation timeline
-    const tl = gsap.timeline({ repeat: -1, yoyo: true });
+    const tl = gsap.timeline({ repeat: -1, yoyo: true, repeatDelay: 2 });
     
     // Ensure hexagons are initially hidden by CSS or explicitly set here if needed
     // gsap.set(hexagons, { opacity: 0 }); // This line can be removed if CSS handles initial state
@@ -36,12 +37,12 @@ const PortfolioV7 = () => {
           opacity: 0.7,
           duration: 0.5, // Animation duration
           ease: "back.out(1.7)",
-          delay: index * 0.8 // Delay for staggered appearance
-        }, index * 0.15);
+          // delay: index * 0.8, // Removed: Relying on position parameter for stagger
+        }, index * 0.8); // Stagger start times on the timeline - Increased from 0.15 to 0.8
       }
     });
     
-    // Hold the city for a moment
+    // Hold the city for a moment when all are visible
     tl.to({}, { duration: 2 });
    
     return () => {
