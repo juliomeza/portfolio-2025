@@ -83,7 +83,7 @@ const PortfolioV7 = () => {
           <h1 className="main-title">
             THE
             <br />
-            ARCHITECT
+            FACILITATOR
           </h1>
           
           {/* Subtitle */}
@@ -103,13 +103,17 @@ const PortfolioV7 = () => {
               <polygon 
                 ref={el => { hexagonsRef.current[0] = el; }}
                 points="50,20 70,10 90,20 90,40 70,50 50,40" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               <polygon 
                 ref={el => { hexagonsRef.current[1] = el; }}
                 points="110,20 130,10 150,20 150,40 130,50 110,40" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               
@@ -117,19 +121,25 @@ const PortfolioV7 = () => {
               <polygon 
                 ref={el => { hexagonsRef.current[2] = el; }}
                 points="20,50 40,40 60,50 60,70 40,80 20,70" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               <polygon 
                 ref={el => { hexagonsRef.current[3] = el; }}
                 points="80,50 100,40 120,50 120,70 100,80 80,70" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               <polygon 
                 ref={el => { hexagonsRef.current[4] = el; }}
                 points="140,50 160,40 180,50 180,70 160,80 140,70" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               
@@ -137,13 +147,17 @@ const PortfolioV7 = () => {
               <polygon 
                 ref={el => { hexagonsRef.current[5] = el; }}
                 points="50,80 70,70 90,80 90,100 70,110 50,100" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               <polygon 
                 ref={el => { hexagonsRef.current[6] = el; }}
                 points="110,80 130,70 150,80 150,100 130,110 110,100" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               
@@ -151,33 +165,25 @@ const PortfolioV7 = () => {
               <polygon 
                 ref={el => { hexagonsRef.current[7] = el; }}
                 points="20,110 40,100 60,110 60,130 40,140 20,130" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               <polygon 
                 ref={el => { hexagonsRef.current[8] = el; }}
                 points="80,110 100,100 120,110 120,130 100,140 80,130" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
               <polygon 
                 ref={el => { hexagonsRef.current[9] = el; }}
                 points="140,110 160,100 180,110 180,130 160,140 140,130" 
-                fill="currentColor" 
-                className="hexagon"
-              />
-              
-              {/* Additional scattered hexagons */}
-              <polygon 
-                ref={el => { hexagonsRef.current[10] = el; }}
-                points="170,20 190,10 210,20 210,40 190,50 170,40" 
-                fill="currentColor" 
-                className="hexagon"
-              />
-              <polygon 
-                ref={el => { hexagonsRef.current[11] = el; }}
-                points="10,80 30,70 50,80 50,100 30,110 10,100" 
-                fill="currentColor" 
+                fill="none" 
+                stroke='currentColor'
+                stroke-width="3"
                 className="hexagon"
               />
             </svg>
