@@ -26,7 +26,7 @@ const PortfolioV7 = () => {
     const tl = gsap.timeline({ repeat: -1, yoyo: true });
     
     // Initially hide all hexagons
-    gsap.set(hexagons, { scale: 0, opacity: 0 });
+    gsap.set(hexagons, { scale: 1, opacity: 0 });
     
     // Animate hexagons appearing one by one
     hexagons.forEach((hex, index) => {
@@ -34,9 +34,9 @@ const PortfolioV7 = () => {
         tl.to(hex, {
           scale: 1,
           opacity: 0.7,
-          duration: 0.3,
+          duration: 0.5, // Duración de la animación
           ease: "back.out(1.7)",
-          delay: index * 0.1
+          delay: index * 0.8 // Delay para que aparezcan uno a uno
         }, index * 0.15);
       }
     });
