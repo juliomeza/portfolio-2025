@@ -21,47 +21,63 @@ const PortfolioV7 = () => {
   useEffect(() => {
     if (!hexagonContainerRef.current) return;
 
-    const allHexagonElements = hexagonsRef.current; // This is (SVGPolygonElement | null)[]
+    const allHexagonElements = hexagonsRef.current;
 
-    const coreHexagon = allHexagonElements[3]; 
-    const surroundingIndices = [0, 1, 2, 4, 5, 6];
-    const surroundingHexagons = surroundingIndices
+    const city1Core = allHexagonElements[3];
+    const city1SurroundingIndices = [0, 1, 2, 4, 5, 6];
+    const city1Surrounding = city1SurroundingIndices
       .map(i => allHexagonElements[i])
       .filter(h => h !== null) as SVGPolygonElement[];
 
-    const tl = gsap.timeline({ 
-      repeat: -1, 
-      yoyo: true, 
-      repeatDelay: 2 // Pause after yoyo before repeating
+    // Indices for the second city
+    const city2Core = allHexagonElements[10]; // Core of City 2 (original core index 3 + 7 offset)
+    const city2SurroundingIndices = [7, 8, 9, 11, 12, 13]; // Surrounding for City 2 (original surrounding + 7 offset)
+    const city2Surrounding = city2SurroundingIndices
+      .map(i => allHexagonElements[i])
+      .filter(h => h !== null) as SVGPolygonElement[];
+
+    const tl = gsap.timeline({
+      repeat: -1,
+      yoyo: true,
+      repeatDelay: 2
     });
-    
-    if (coreHexagon) {
-      tl.fromTo(coreHexagon, 
-        { opacity: 0, transformOrigin: "50% 50%" }, // Initial state: invisible
-        {
-          opacity: 0.7, // Target state: visible
-          duration: 1.5, // Slower animation
-          ease: "power1.inOut",
-          transformOrigin: "50% 50%" // Ensure scaling from center
-        }, 
-      "coreAppear"); 
+
+    // Animation City 1
+    if (city1Core) {
+      tl.fromTo(city1Core,
+        { opacity: 0, transformOrigin: "50% 50%" },
+        { opacity: 0.7, duration: 1.5, ease: "power1.inOut", transformOrigin: "50% 50%" },
+        "city1CoreAppear");
+    }
+    if (city1Surrounding.length > 0) {
+      tl.fromTo(city1Surrounding,
+        { opacity: 0, transformOrigin: "50% 50%" },
+        { opacity: 0.7, duration: 1.5, ease: "power1.inOut", transformOrigin: "50% 50%", stagger: 0.3 },
+        "city1CoreAppear+=0.5");
     }
 
-    if (surroundingHexagons.length > 0) {
-      tl.fromTo(surroundingHexagons, 
-        { opacity: 0, transformOrigin: "50% 50%" }, // Initial state: invisible
-        {
-          opacity: 0.7, // Target state: visible
-          duration: 1.5, // Slower animation
-          ease: "power1.inOut",
-          transformOrigin: "50% 50%",
-          stagger: 0.8 // Adjusted stagger for slower appearance
-        }, 
-      "coreAppear+=0.9"); // Adjusted delay for surrounding hexagons
+    // Pause after City 1 forms
+    tl.to({}, { duration: 1.0 }, "city1FullyFormed");
+
+    // Animation City 2
+    const city2StartTime = "city1FullyFormed+=0.2";
+
+    if (city2Core) {
+      tl.fromTo(city2Core,
+        { opacity: 0, transformOrigin: "50% 50%" },
+        { opacity: 0.7, duration: 1.5, ease: "power1.inOut", transformOrigin: "50% 50%" },
+        city2StartTime);
     }
-    
-    tl.to({}, { duration: 1 }); // Hold the fully formed 7-hexagon shape
-   
+    if (city2Surrounding.length > 0) {
+      tl.fromTo(city2Surrounding,
+        { opacity: 0, transformOrigin: "50% 50%" },
+        { opacity: 0.7, duration: 1.5, ease: "power1.inOut", transformOrigin: "50% 50%", stagger: 0.3 },
+        `${city2StartTime}+=0.5`);
+    }
+
+    // Hold both cities visible
+    tl.to({}, { duration: 2 });
+
     return () => {
       tl.kill();
     };
@@ -95,103 +111,80 @@ const PortfolioV7 = () => {
             {wisdoms[currentWisdom]}
           </p>          {/* Geometric Symbol - Hexagonal City */}
           <div className="symbol-container">
-            <svg 
+            <svg
               ref={hexagonContainerRef}
-              width="200" 
+              width="250"
               height="120"
-              viewBox="0 0 200 120" 
+              viewBox="0 0 250 120"
               className="hexagon-city-svg"
             >
-              {/* Hexagon city pattern - Core and 6 surrounding */}
-              {/* Row 1 (Indices 0, 1 in hexagonsRef) */}
+              {/* City 1 (Left) - X coordinates shifted by -40 */}
+              {/* Hexagon ref indices 0-6 */}
+              {/* Row 1 (Indices 0, 1) */}
               <polygon
                 ref={el => { hexagonsRef.current[0] = el; }}
-                points="82.7,10.0 100.0,20.0 100.0,40.0 82.7,50.0 65.4,40.0 65.4,20.0"
-                fill="none"
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
+                points="42.7,10.0 60.0,20.0 60.0,40.0 42.7,50.0 25.4,40.0 25.4,20.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
               <polygon
                 ref={el => { hexagonsRef.current[1] = el; }}
-                points="117.3,10.0 134.6,20.0 134.6,40.0 117.3,50.0 100.0,40.0 100.0,20.0"
-                fill="none"
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
-
-              {/* Row 2 (Indices 2, 3, 4 in hexagonsRef) */}
+                points="77.3,10.0 94.6,20.0 94.6,40.0 77.3,50.0 60.0,40.0 60.0,20.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              {/* Row 2 (Indices 2, 3-core, 4) */}
               <polygon
                 ref={el => { hexagonsRef.current[2] = el; }}
-                points="65.4,40.0 82.7,50.0 82.7,70.0 65.4,80.0 48.1,70.0 48.1,50.0"
-                fill="none"
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
-              <polygon
+                points="25.4,40.0 42.7,50.0 42.7,70.0 25.4,80.0 8.1,70.0 8.1,50.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              <polygon /* CORE CITY 1 */
                 ref={el => { hexagonsRef.current[3] = el; }}
-                points="100.0,40.0 117.3,50.0 117.3,70.0 100.0,80.0 82.7,70.0 82.7,50.0"
-                fill="none"
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
+                points="60.0,40.0 77.3,50.0 77.3,70.0 60.0,80.0 42.7,70.0 42.7,50.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
               <polygon
                 ref={el => { hexagonsRef.current[4] = el; }}
-                points="134.6,40.0 151.9,50.0 151.9,70.0 134.6,80.0 117.3,70.0 117.3,50.0"
-                fill="none"
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
-
-              {/* Row 3 (Indices 5, 6 in hexagonsRef) */}
+                points="94.6,40.0 111.9,50.0 111.9,70.0 94.6,80.0 77.3,70.0 77.3,50.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              {/* Row 3 (Indices 5, 6) */}
               <polygon
                 ref={el => { hexagonsRef.current[5] = el; }}
-                points="82.7,70.0 100.0,80.0 100.0,100.0 82.7,110.0 65.4,100.0 65.4,80.0"
-                fill="none"
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
+                points="42.7,70.0 60.0,80.0 60.0,100.0 42.7,110.0 25.4,100.0 25.4,80.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
               <polygon
                 ref={el => { hexagonsRef.current[6] = el; }}
-                points="117.3,70.0 134.6,80.0 134.6,100.0 117.3,110.0 100.0,100.0 100.0,80.0"
-                fill="none"
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
+                points="77.3,70.0 94.6,80.0 94.6,100.0 77.3,110.0 60.0,100.0 60.0,80.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
 
-              {/* Row 4 (Indices 7, 8, 9 in hexagonsRef) - Commented out as per user request */}
-              {/*
-              <polygon 
-                ref={el => { hexagonsRef.current[7] = el; }}
-                points="65.4,100.0 82.7,110.0 82.7,130.0 65.4,140.0 48.1,130.0 48.1,110.0" 
-                fill="none" 
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
-              <polygon 
-                ref={el => { hexagonsRef.current[8] = el; }}
-                points="100.0,100.0 117.3,110.0 117.3,130.0 100.0,140.0 82.7,130.0 82.7,110.0" 
-                fill="none" 
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
-              <polygon 
-                ref={el => { hexagonsRef.current[9] = el; }}
-                points="134.6,100.0 151.9,110.0 151.9,130.0 134.6,140.0 117.3,130.0 117.3,110.0" 
-                fill="none" 
-                stroke='currentColor'
-                stroke-width="3"
-                className="hexagon"
-              />
-              */}
+              {/* City 2 (Right) - Original X coordinates + 85 */}
+              {/* Hexagon ref indices 7-13 */}
+              {/* Row 1 (Indices 7, 8) */}
+              <polygon
+                ref={el => { hexagonsRef.current[7] = el; }} /* Corresponds to original hexagon 0 */
+                points="167.7,10.0 185.0,20.0 185.0,40.0 167.7,50.0 150.4,40.0 150.4,20.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              <polygon
+                ref={el => { hexagonsRef.current[8] = el; }} /* Corresponds to original hexagon 1 */
+                points="202.3,10.0 219.6,20.0 219.6,40.0 202.3,50.0 185.0,40.0 185.0,20.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              {/* Row 2 (Indices 9, 10-core, 11) */}
+              <polygon
+                ref={el => { hexagonsRef.current[9] = el; }} /* Corresponds to original hexagon 2 */
+                points="150.4,40.0 167.7,50.0 167.7,70.0 150.4,80.0 133.1,70.0 133.1,50.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              <polygon /* CORE CITY 2 */
+                ref={el => { hexagonsRef.current[10] = el; }} /* Corresponds to original hexagon 3 */
+                points="185.0,40.0 202.3,50.0 202.3,70.0 185.0,80.0 167.7,70.0 167.7,50.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              <polygon
+                ref={el => { hexagonsRef.current[11] = el; }} /* Corresponds to original hexagon 4 */
+                points="219.6,40.0 236.9,50.0 236.9,70.0 219.6,80.0 202.3,70.0 202.3,50.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              {/* Row 3 (Indices 12, 13) */}
+              <polygon
+                ref={el => { hexagonsRef.current[12] = el; }} /* Corresponds to original hexagon 5 */
+                points="167.7,70.0 185.0,80.0 185.0,100.0 167.7,110.0 150.4,100.0 150.4,80.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
+              <polygon
+                ref={el => { hexagonsRef.current[13] = el; }} /* Corresponds to original hexagon 6 */
+                points="202.3,70.0 219.6,80.0 219.6,100.0 202.3,110.0 185.0,100.0 185.0,80.0"
+                fill="none" stroke='currentColor' strokeWidth="3" className="hexagon" />
             </svg>
           </div>
 
