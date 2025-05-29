@@ -55,9 +55,9 @@ const PortfolioV7 = () => {
           duration: 1.5, // Slower animation
           ease: "power1.inOut",
           transformOrigin: "50% 50%",
-          stagger: 0.3 // Adjusted stagger for slower appearance
+          stagger: 0.8 // Adjusted stagger for slower appearance
         }, 
-      "coreAppear+=0.5"); // Adjusted delay for surrounding hexagons
+      "coreAppear+=0.9"); // Adjusted delay for surrounding hexagons
     }
     
     tl.to({}, { duration: 2 }); // Hold the fully formed 7-hexagon shape
