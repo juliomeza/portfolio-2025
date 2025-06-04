@@ -167,7 +167,7 @@ function PortfolioV1() {
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          <p>&copy; 2025 John Meza. All rights reserved.</p>
+          <p>&copy; 2025 Julio Meza. All rights reserved.</p>
         </div>
       </footer>
     </div>
