@@ -187,7 +187,7 @@ function PortfolioV2() {
       {/* Minimal Footer */}
       <footer className="footer-minimal">
         <div className="content-container">
-          <p>© 2025 John Meza</p>
+          <p>© 2025 Julio Meza</p>
         </div>
       </footer>
     </div>
