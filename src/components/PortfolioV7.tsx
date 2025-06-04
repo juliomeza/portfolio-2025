@@ -4,18 +4,19 @@ import { Circle } from 'lucide-react';
 import { gsap } from 'gsap';
 import './PortfolioV7.css';
 
+const wisdoms = [
+  'Building systems that think',
+  'Where operations meet intelligence',
+  'The art of digital transformation',
+  'Simplicity in complexity'
+];
+
 const PortfolioV7 = () => {
   const [currentWisdom, setCurrentWisdom] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
   const hexagonContainerRef = useRef<SVGSVGElement>(null);
   const hexagonsRef = useRef<(SVGPolygonElement | null)[]>([]);
 
-  const wisdoms = [
-    "Building systems that think",
-    "Where operations meet intelligence", 
-    "The art of digital transformation",
-    "Simplicity in complexity"
-  ];
 
   // Hexagon city animation
   useEffect(() => {
