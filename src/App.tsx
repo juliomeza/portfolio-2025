@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, type ChangeEvent } from 'react'
 import PortfolioV1 from './components/PortfolioV1'
 import PortfolioV2 from './components/PortfolioV2'
 import PortfolioV3 from './components/PortfolioV3'
@@ -53,7 +53,9 @@ function App() {
           <select
             id="portfolio-select"
             value={selectedPortfolio}
-            onChange={(e) => setSelectedPortfolio(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+              setSelectedPortfolio(e.target.value)
+            }
             className="selector-dropdown"
           >
             {portfolioOptions.map((option) => (
