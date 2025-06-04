@@ -9,7 +9,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;  /* Reducimos el z-index para que esté por debajo de la navegación del portfolio */
+  z-index: 999;  /* Reduce z-index so the selector stays below the portfolio navigation */
   background: #1a202c;
   padding: 6px 0;
   color: white;
